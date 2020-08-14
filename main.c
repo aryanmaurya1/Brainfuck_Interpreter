@@ -18,6 +18,9 @@ You can read more about it on wikipedia. https://en.wikipedia.org/wiki/Brainfuck
 
 #define MAX 30000
 
+/* Set the value of constant DEBUG to 1 for printing step-by-step execution
+  of program. 
+*/
 const int DEBUG = 0;
 
 int run(char inst[], char data[]){
@@ -114,8 +117,10 @@ int run(char inst[], char data[]){
 				}
 				break;
 			default:
-				printf("%c |", *inst_ptr);
-				printf("%c -> %d \n", *data_ptr, *data_ptr);
+				if(DEBUG){
+					printf("%c |", *inst_ptr);
+					printf("%c -> %d \n", *data_ptr, *data_ptr);
+				}
 				inst_ptr++;
 		}
 	}
